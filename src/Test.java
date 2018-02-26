@@ -117,8 +117,8 @@ public class Test {
 //			p(m.group());
 //		}
 
-		//qulifiers
-		/*
+		//qulifiers ÐÞÕý·û
+		//Ì°À·
 		Pattern p = Pattern.compile(".{3,10}+[0-9]");
 		String s = "aaaa5bbbb68";
 		Matcher m = p.matcher(s);
@@ -126,8 +126,7 @@ public class Test {
 			p(m.start() + "-" + m.end());
 		else 
 			p("not match!");
-		*/
-		
+
 		//non-capturing groups
 		/*
 		Pattern p = Pattern.compile(".{3}(?=a)");
