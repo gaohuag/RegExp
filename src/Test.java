@@ -94,20 +94,20 @@ public class Test {
 
 		//replacement
 		//替换字符串中的java 第单数个java全部大写 双数个java小写
-		Pattern p = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
-		Matcher m = p.matcher("java Java JAVa JaVa IloveJAVA you hateJava afasdfasdf");
-		StringBuffer buf = new StringBuffer();
-		int i=0;
-		while(m.find()) {
-			i++;
-			if(i%2 == 0) {
-				m.appendReplacement(buf, "java");
-			} else {
-				m.appendReplacement(buf, "JAVA");
-			}
-		}
-		m.appendTail(buf);
-		p(buf);
+//		Pattern p = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
+//		Matcher m = p.matcher("java Java JAVa JaVa IloveJAVA you hateJava afasdfasdf");
+//		StringBuffer buf = new StringBuffer();
+//		int i=0;
+//		while(m.find()) {
+//			i++;
+//			if(i%2 == 0) {
+//				m.appendReplacement(buf, "java");
+//			} else {
+//				m.appendReplacement(buf, "JAVA");
+//			}
+//		}
+//		m.appendTail(buf);
+//		p(buf);
 
 		//group
 //		Pattern p = Pattern.compile("(\\d{3,5})([a-z]{2})");
@@ -117,37 +117,36 @@ public class Test {
 //			p(m.group());
 //		}
 
-		//qulifiers 修正符
-		//贪婪
-		Pattern p = Pattern.compile(".{3,10}+[0-9]");
-		String s = "aaaa5bbbb68";
-		Matcher m = p.matcher(s);
-		if(m.find())
-			p(m.start() + "-" + m.end());
-		else 
-			p("not match!");
+		//qulifiers 修定词
+		//贪婪 greedy
+		//reluctant
+//		Pattern p = Pattern.compile(".{3,10}+[0-9]");
+//		String s = "aaaa5bbbb68";
+//		Matcher m = p.matcher(s);
+//		if(m.find())
+//			p(m.start() + "-" + m.end());
+//		else
+//			p("not match!");
 
-		//non-capturing groups
-		/*
-		Pattern p = Pattern.compile(".{3}(?=a)");
-		String s = "444a66b";
-		Matcher m = p.matcher(s);
-		while(m.find()) {
-			p(m.group());
-		}
-		*/
-		
-		//back refenrences
-		/*
-		Pattern p = Pattern.compile("(\\d(\\d))\\2");
-		String s = "122";
-		Matcher m = p.matcher(s);
-		p(m.matches());
-		*/
-		
-		//flags的简写
-		//Pattern p = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
-//		p("Java".matches("(?i)(java)"));
+		//non-capturing groups (?=x)
+//		Pattern p = Pattern.compile(".{3}(?=a)");
+//		String s = "444a66b";
+//		Matcher m = p.matcher(s);
+//		while(m.find()) {
+//			p(m.group());
+//		}
+
+		//back refenrences 向前引用 \2表示和第二个括号里面的内容一样
+//		Pattern p = Pattern.compile("(\\d(\\d))\\2");
+//		String s = "122";
+//		Matcher m = p.matcher(s);
+//		p(m.matches());
+
+		//flags的简写 标志位
+		Pattern p = Pattern.compile("java", Pattern.CASE_INSENSITIVE);
+		Matcher m=p.matcher("JaVar");
+		p(m.find());
+		p("Java".matches("(?i)(java)"));
 	}
 	
 	public static void p(Object o) {
